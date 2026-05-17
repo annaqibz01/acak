@@ -1,17 +1,22 @@
-# acak â€” Library Random Berbahasa Indonesia
+# acak — Library Random Berbahasa Indonesia
 
-**acak** adalah library Python yang membungkus modul standar 
-andom dengan antarmuka berbahasa Indonesia. Dibuat agar lebih mudah dipahami oleh developer Indonesia.
+**acak** adalah library Python yang membungkus modul standar `random` dengan antarmuka berbahasa Indonesia. Dibuat agar lebih mudah dipahami oleh developer Indonesia.
 
 ## Instalasi
 
-`ash
+```bash
 pip install acak
-`
+```
+
+Atau langsung dari GitHub:
+
+```bash
+pip install git+https://github.com/annaqibz01/acak.git
+```
 
 ## Contoh Penggunaan
 
-`python
+```python
 from acak import acak, acak_bulat, pilih, acak_urutkan, bibit
 
 # Float acak 0.0 - 1.0
@@ -23,29 +28,32 @@ print(acak_bulat(1, 10))   # 7
 # Pilih satu elemen
 print(pilih(["apel", "mangga", "jeruk"]))  # "mangga"
 
-# Acak urutan list
-buah = ["apel", "mangga", "jeruk", "durian"]
-acak_urutkan(buah)
-print(buah)                # ['durian', 'apel', 'jeruk', 'mangga']
-
 # Set seed (bibit)
 bibit(42)
-print(acak_bulat(1, 10))   # 2
-`
+print(acak_bulat(1, 100))  # 82
+```
 
 ## Daftar Fungsi
 
-| Fungsi | Deskripsi |
-|--------|-----------|
-| cak() | Float acak 0.0 <= x < 1.0 |
-| cak_bulat(a, b) | Integer acak antara a dan b (inklusif) |
-| cak_seragam(a, b) | Float acak antara a dan b |
-| pilih(urutan) | Pilih satu elemen dari urutan |
-| pilih_banyak(urutan, jumlah) | Pilih beberapa elemen (dengan pengembalian) |
-| contoh(populasi, jumlah) | Ambil sample tanpa pengembalian |
-| cak_urutkan(urutan) | Acak urutan list (in-place) |
-| ibit(n) | Set seed untuk reproduksibilitas |
+| Fungsi | Padanan `random` | Deskripsi |
+|--------|-----------------|-----------|
+| `acak()` | `random()` | Float 0.0 <= x < 1.0 |
+| `acak_bulat(a, b)` | `randint(a, b)` | Integer antara a dan b |
+| `acak_seragam(a, b)` | `uniform(a, b)` | Float antara a dan b |
+| `pilih(urutan)` | `choice(seq)` | Pilih satu elemen |
+| `pilih_banyak(urutan, jumlah)` | `choices(seq, k=n)` | Pilih banyak (dengan pengembalian) |
+| `contoh(populasi, jumlah)` | `sample(pop, k)` | Sample tanpa pengembalian |
+| `acak_urutkan(urutan)` | `shuffle(seq)` | Acak urutan in-place |
+| `bibit(n)` | `seed(n)` | Set seed |
+
+## Test
+
+```bash
+python -m pytest src/acak/tests/test_acak.py -v
+```
 
 ## Lisensi
 
-MIT
+MIT © 2025 annaqibz01
+~~~
+
