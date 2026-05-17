@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta:__legacy__"
+
+[project]
+name = "acak"
+version = "0.1.0"
+description = "Library random berbahasa Indonesia - wrapper untuk modul random Python"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "annaqibz01"}
+]
+requires-python = ">=3.8"
+keywords = ["random", "indonesia", "bahasa", "acak"]
+
+[project.urls]
+Homepage = "https://github.com/annaqibz01/acak"
+
+[tool.setuptools.packages.find]
+where = ["src"]
